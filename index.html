@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>فراز گستر | خوش آمدید</title>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;600;800&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --green-1: #052e1a;
+    --green-2: #0b5d33;
+    --green-3: #16a34a;
+    --green-4: #34d97b;
+    --red-1: #4a0a0f;
+    --red-2: #8b0f1f;
+    --red-3: #d92638;
+    --red-4: #ff4b5c;
+    --gold: #ffd76e;
+  }
+
+  body {
+    font-family: 'Vazirmatn', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px 16px;
+    color: #fff;
+    overflow-x: hidden;
+    background:
+      radial-gradient(circle at 15% 15%, rgba(22,163,74,0.55), transparent 45%),
+      radial-gradient(circle at 85% 85%, rgba(217,38,56,0.50), transparent 45%),
+      linear-gradient(160deg, #04140c 0%, #052e1a 35%, #4a0a0f 75%, #8b0f1f 100%);
+    background-attachment: fixed;
+    animation: bg 16s ease-in-out infinite alternate;
+  }
+  @keyframes bg {
+    0%   { background-position: 0 0, 100% 100%, 0 0; }
+    100% { background-position: 100% 100%, 0 0, 0 0; }
+  }
+
+  /* Floating orbs */
+  .orb {
+    position: fixed;
+    border-radius: 50%;
+    animation: rise 18s linear infinite;
+    pointer-events: none;
+    filter: blur(8px);
+  }
+  .orb:nth-child(1){ width:150px;height:150px;left:-40px;bottom:-60px;animation-duration:22s; background: radial-gradient(circle, rgba(52,217,123,0.55), transparent 70%); }
+  .orb:nth-child(2){ width:90px;height:90px;right:10%;bottom:-80px;animation-duration:17s;animation-delay:-5s; background: radial-gradient(circle, rgba(255,75,92,0.55), transparent 70%); }
+  .orb:nth-child(3){ width:180px;height:180px;right:-60px;bottom:-100px;animation-duration:26s;animation-delay:-10s; background: radial-gradient(circle, rgba(52,217,123,0.4), transparent 70%); }
+  .orb:nth-child(4){ width:70px;height:70px;left:20%;bottom:-50px;animation-duration:14s;animation-delay:-3s; background: radial-gradient(circle, rgba(255,75,92,0.5), transparent 70%); }
+  @keyframes rise {
+    0%   { transform: translateY(0) scale(1); opacity: 0.9; }
+    100% { transform: translateY(-110vh) scale(1.3); opacity: 0; }
+  }
+
+  .card {
+    position: relative;
+    z-index: 2;
+    max-width: 500px;
+    width: 100%;
+    padding: 40px 28px 30px;
+    border-radius: 32px;
+    text-align: center;
+    background: linear-gradient(160deg, rgba(255,255,255,0.14), rgba(255,255,255,0.04));
+    border: 1.5px solid rgba(255,255,255,0.28);
+    backdrop-filter: blur(22px);
+    -webkit-backdrop-filter: blur(22px);
+    box-shadow:
+      0 30px 80px rgba(0,0,0,0.6),
+      0 0 60px rgba(22,163,74,0.20),
+      0 0 80px rgba(217,38,56,0.20),
+      inset 0 1px 0 rgba(255,255,255,0.35);
+    animation: pop 0.9s cubic-bezier(.2,.9,.3,1.2) both;
+    overflow: hidden;
+  }
+  .card::before {
+    content: '';
+    position: absolute;
+    top: 0; right: 0;
+    width: 100%; height: 4px;
+    background: linear-gradient(90deg, var(--green-3), var(--gold), var(--red-3));
+  }
+  @keyframes pop {
+    from { opacity: 0; transform: translateY(40px) scale(0.92); }
+    to   { opacity: 1; transform: translateY(0) scale(1); }
+  }
+
+  /* Logo emblem */
+  .logo {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto 20px;
+    border-radius: 28px;
+    display: grid;
+    place-items: center;
+    background: linear-gradient(135deg, var(--green-3), var(--red-3));
+    box-shadow:
+      0 18px 45px rgba(22,163,74,0.4),
+      0 10px 35px rgba(217,38,56,0.4),
+      0 0 0 6px rgba(255,215,110,0.2),
+      0 0 0 14px rgba(255,215,110,0.08);
+    animation: bob 3.5s ease-in-out infinite;
+    position: relative;
+  }
+  .logo::before {
+    content: '';
+    position: absolute;
+    inset: 5px;
+    border-radius: 23px;
+    border: 1.5px solid rgba(255,255,255,0.45);
+  }
+  @keyframes bob {
+    0%,100% { transform: translateY(0) rotate(0); }
+    50%     { transform: translateY(-8px) rotate(3deg); }
+  }
+  .logo svg { width: 50px; height: 50px; filter: drop-shadow(0 4px 12px rgba(0,0,0,0.4)); }
+
+  .brand {
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: var(--gold);
+    margin-bottom: 16px;
+    text-shadow: 0 0 20px rgba(255,215,110,0.4);
+    direction: ltr;
+  }
+
+  .tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 7px 16px;
+    border-radius: 999px;
+    background: rgba(52,217,123,0.18);
+    border: 1px solid rgba(52,217,123,0.55);
+    font-size: 12px;
+    font-weight: 700;
+    margin-bottom: 16px;
+    letter-spacing: 0.3px;
+    color: #7dffb0;
+  }
+  .tag .dot {
+    width: 8px; height: 8px; border-radius: 50%;
+    background: #6dffb1;
+    box-shadow: 0 0 10px #6dffb1;
+    animation: blink 1.4s infinite;
+  }
+  @keyframes blink {
+    50% { opacity: 0.3; transform: scale(0.7); }
+  }
+
+  .cyrus {
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: var(--gold);
+    margin-bottom: 16px;
+    padding: 10px 18px;
+    display: inline-block;
+    border-radius: 14px;
+    background: linear-gradient(135deg, rgba(255,215,110,0.14), rgba(255,183,71,0.06));
+    border: 1px solid rgba(255,215,110,0.45);
+    text-shadow: 0 0 18px rgba(255,215,110,0.5);
+    letter-spacing: 0.5px;
+  }
+
+  h1 {
+    font-size: clamp(1.55rem, 6vw, 2.05rem);
+    font-weight: 800;
+    line-height: 1.45;
+    margin-bottom: 14px;
+    text-shadow: 0 4px 20px rgba(0,0,0,0.3);
+  }
+  h1 .accent {
+    background: linear-gradient(90deg, #7dffb0, #ffffff, #ff8a95, #7dffb0);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 250% auto;
+    animation: shine 5s linear infinite;
+  }
+  @keyframes shine {
+    0%   { background-position: 0%; }
+    100% { background-position: 200%; }
+  }
+
+  .desc {
+    font-size: 0.95rem;
+    line-height: 1.9;
+    color: rgba(255,255,255,0.92);
+    margin-bottom: 22px;
+    font-weight: 300;
+  }
+  .desc strong { color: var(--gold); font-weight: 700; }
+
+  /* Story block */
+  .story {
+    text-align: right;
+    padding: 18px 20px;
+    margin-bottom: 18px;
+    border-radius: 20px;
+    background: linear-gradient(145deg, rgba(22,163,74,0.12), rgba(217,38,56,0.08));
+    border: 1px solid rgba(255,255,255,0.15);
+    position: relative;
+    overflow: hidden;
+  }
+  .story::before {
+    content: '';
+    position: absolute;
+    top: 0; right: 0;
+    width: 3px; height: 100%;
+    background: linear-gradient(180deg, var(--green-4), var(--gold), var(--red-4));
+    box-shadow: 0 0 14px rgba(52,217,123,0.6);
+  }
+  .story-title {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #7dffb0;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .story-title::before { content: '🏛️'; font-size: 16px; }
+  .story p {
+    font-size: 0.9rem;
+    line-height: 1.95;
+    color: rgba(255,255,255,0.92);
+    font-weight: 300;
+  }
+  .story .hl-g { color: #7dffb0; font-weight: 700; }
+  .story .hl-r { color: #ffb3bc; font-weight: 700; }
+  .story .hl-y { color: var(--gold); font-weight: 700; }
+
+  /* Sponsor block */
+  .sponsor {
+    padding: 16px 18px;
+    margin-bottom: 18px;
+    border-radius: 20px;
+    background: linear-gradient(135deg, rgba(22,163,74,0.20), rgba(255,215,110,0.10), rgba(217,38,56,0.20));
+    border: 1.5px solid rgba(255,215,110,0.5);
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    text-align: right;
+    position: relative;
+    overflow: hidden;
+    animation: glow 3s ease-in-out infinite alternate;
+  }
+  @keyframes glow {
+    from { box-shadow: 0 0 20px rgba(52,217,123,0.25), 0 0 20px rgba(255,75,92,0.15); }
+    to   { box-shadow: 0 0 35px rgba(52,217,123,0.45), 0 0 35px rgba(255,75,92,0.30); }
+  }
+  .sponsor-icon {
+    flex-shrink: 0;
+    width: 50px; height: 50px;
+    border-radius: 14px;
+    background: linear-gradient(135deg, var(--green-3), var(--red-3));
+    display: grid;
+    place-items: center;
+    font-size: 24px;
+    box-shadow: 0 8px 22px rgba(0,0,0,0.35);
+    animation: beat 2s ease-in-out infinite;
+  }
+  @keyframes beat {
+    0%,100% { transform: scale(1); }
+    25%     { transform: scale(1.1); }
+    50%     { transform: scale(1); }
+  }
+  .sponsor-text {
+    font-size: 0.88rem;
+    line-height: 1.8;
+    color: rgba(255,255,255,0.95);
+  }
+  .sponsor-text .label {
+    display: block;
+    font-size: 0.72rem;
+    color: #7dffb0;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-bottom: 4px;
+  }
+  .sponsor-text .name {
+    font-size: 1.05rem;
+    font-weight: 800;
+    color: var(--gold);
+    text-shadow: 0 0 14px rgba(255,215,110,0.55);
+  }
+
+  /* CTA */
+  .cta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    padding: 18px 24px;
+    border-radius: 999px;
+    font-family: inherit;
+    font-size: 1.12rem;
+    font-weight: 800;
+    color: #fff;
+    text-decoration: none;
+    background: linear-gradient(100deg, var(--green-3), var(--red-3) 55%, var(--red-4));
+    background-size: 200% auto;
+    box-shadow:
+      0 15px 40px rgba(22,163,74,0.45),
+      0 8px 25px rgba(217,38,56,0.45),
+      inset 0 1px 0 rgba(255,255,255,0.4);
+    transition: all 0.35s cubic-bezier(.2,.8,.2,1);
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 14px;
+  }
+  .cta::before {
+    content: '';
+    position: absolute;
+    top: 0; left: -100%;
+    width: 100%; height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.5), transparent);
+    transition: left 0.7s;
+  }
+  .cta:hover {
+    transform: translateY(-3px) scale(1.02);
+    background-position: right center;
+    box-shadow:
+      0 22px 55px rgba(22,163,74,0.7),
+      0 12px 35px rgba(217,38,56,0.6),
+      inset 0 1px 0 rgba(255,255,255,0.55);
+  }
+  .cta:hover::before { left: 100%; }
+  .cta:active { transform: translateY(-1px) scale(0.99); }
+  .cta svg { width: 22px; height: 22px; }
+
+  .link-hint {
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.38);
+    word-break: break-all;
+    font-family: monospace;
+    margin-bottom: 18px;
+    direction: ltr;
+  }
+
+  footer {
+    margin-top: 8px;
+    font-size: 0.72rem;
+    color: rgba(255,255,255,0.35);
+    letter-spacing: 0.5px;
+  }
+  footer .heart { color: var(--red-4); }
+
+  @media (max-width: 480px) {
+    .card { padding: 32px 20px 24px; border-radius: 26px; }
+    .logo { width: 84px; height: 84px; }
+    .logo svg { width: 42px; height: 42px; }
+    .cta { font-size: 1rem; padding: 16px 20px; }
+    .story p { font-size: 0.85rem; }
+    .sponsor { flex-direction: column; text-align: center; gap: 10px; }
+    .brand { font-size: 0.9rem; letter-spacing: 1px; }
+    .cyrus { font-size: 1rem; padding: 8px 14px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="orb"></div>
+<div class="orb"></div>
+<div class="orb"></div>
+<div class="orb"></div>
+
+<main class="card">
+
+  <div class="logo">
+    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M12 2L4 8v8l8 6 8-6V8l-8-6z" fill="#ffffff" opacity="0.95"/>
+      <path d="M12 6L8 9v6l4 3 4-3V9l-4-3z" fill="#0b5d33"/>
+      <circle cx="12" cy="12" r="1.6" fill="#d92638"/>
+    </svg>
+  </div>
+
+  <div class="brand">𖣘 farazgostar 🌐</div>
+
+  <div class="tag">
+    <span class="dot"></span>
+    <span>افتتاح شد ✓</span>
+  </div>
+
+  <div class="cyrus">🏛️ به نام کوروش کبیر</div>
+
+  <h1>به شرکت <span class="accent">فراز گستر</span> خوش آمدید</h1>
+
+  <p class="desc">
+    جایی برای رشد، اعتماد و ساختن آینده‌ای روشن. ✨
+  </p>
+
+  <!-- Story block -->
+  <div class="story">
+    <div class="story-title">درباره ما</div>
+    <p>
+      <span class="hl-g">فراز گستر</span> یک شرکت <span class="hl-r">تازه تأسیس</span> است، اما با <span class="hl-y">دست پر</span> وارد میدان شده و حالا با قدرت <span class="hl-g">افتتاح شده</span>. ما با تکیه بر دانش، تعهد و نگاهی نو، آمده‌ایم تا مسیری تازه بسازیم. 🚀
+    </p>
+  </div>
+
+  <!-- Sponsor block -->
+  <div class="sponsor">
+    <div class="sponsor-icon">🤝</div>
+    <div class="sponsor-text">
+      <span class="label">حامی رسمی این شرکت</span>
+      <span class="name">نوا وار</span>
+    </div>
+  </div>
+
+  <a href="https://splus.ir/joingroup/AX0JoKb-8EmVZHM13QrFsg" target="_top" rel="noopener" class="cta">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M22 2L11 13"/>
+      <path d="M22 2l-7 20-4-9-9-4 20-7z"/>
+    </svg>
+    <span>ورود مستقیم به کانال</span>
+  </a>
+
+  <div class="link-hint">splus.ir/joingroup/AX0JoKb-8EmVZHM13QrFsg</div>
+
+  <footer>ساخته شده با <span class="heart">♥</span> برای فراز گستر</footer>
+
+</main>
+
+</body>
+</html>
